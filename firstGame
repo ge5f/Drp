@@ -1,0 +1,73 @@
+print("Welcome to my game!")
+name = input("What is your name? ")
+age = int(input("What is your age? "))
+
+
+
+
+if age >= 18:
+	print("You are old enough!")
+	health = 50
+	print("You are starting with", health, "health")
+	
+
+
+
+	wants_to_play = input("Do you want to play? ")
+	if wants_to_play == "yes":
+		print("Lets play", name,"!")
+		
+		
+	
+
+		left_or_right= input("First Choice... Left or Right(left/right)? ")
+		if left_or_right == "left": 
+			ans1 = input("Ok, so you keep going left and reach a dead end...You're faced with the choice of left or right again, but this time both sides are marked with warning signs..which side do you choose(left/right)? ")
+			if ans1 == "left":
+				choice1 = input("You're at a ledge and you're being approached by beasts, do you jump into the river or slowly climb down (jump/climb)? ")
+				if choice1 == "jump":
+					Decision1 = input( "You broke your leg and lost 30 health. You were able to make a makeshift cast and drag yourself across the river. You see what looks like an opening, but there's a sign that says 'WARNING: predators near the area',do you heed the warning and go back to the river, or do you ignore the warning and proceed (go back/proceed?) ").lower()
+					health -= 30
+					if Decision1 == "go back":
+						print("Met on the other side with predators, you're quickly eaten alive. You lost.")
+						health -= 50
+					elif Decision1 == "proceed":
+						print ("Congratulations! you made it out, but you were arrested by a nearby state trooper for trespassing. You have to plead your innocence in court now.")
+				
+				elif choice1 == "climb":
+					print("You tried climbing down but the predators caught you in time and clawed your hands off of the ledge, you fell on your back and died.")
+
+			elif ans1 == "right":
+					print("You fell into a trap and died from the spikes that were at the bottom.")
+		
+		elif left_or_right == "right":
+				ans = input("You reach a lake..Do you swim across or go around(across/around)? ")
+				
+				if ans == "across":
+					cabin= input ("You managed to get across but you were bitten by something in the lake and lost 5 health. When you cross the lake you find an ominous cabin, do you enter the cabin or swim back to the other side of the lake? (enter/swim back) ")
+					health -= 5
+				if cabin == "swim back":
+						print ("You swam back but were shot down immediately by confused hunters. You died.")
+						health -= 0
+				elif cabin == "enter":
+							print ("You enter the cabin and there's a predator! you are attacked and lost 48 health!")
+							health -= 48
+				
+
+			
+				elif ans == "around":
+					cabin2 = input ("You went around the lake and found a cabin, but there's someone screaming for help! do you enter the cabin and save whoever's screaming or ignore it and take another path?(ignore/save them) ")
+					if cabin2 == "ignore":
+						print("You were attacked by a gang of hawks and died from your injuries.")
+						health -= 50
+					elif cabin2 == "save them":
+							print ("The screams were actually pre-recorded by a ravenous serial killer. He stabs your chest and you die from your injuries.")
+							health -= 50
+				if health <= 0:
+					print("You now have no health and you lost the game.")
+				else:
+					print("You have survived.")
+	else:
+		print("Ok, goodbye..")
+else:
+	print("You are not old enough to play.")
